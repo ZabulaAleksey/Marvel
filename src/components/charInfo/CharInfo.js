@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import Spinner from '../spinner/spinner';
+import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
 
@@ -59,6 +59,11 @@ class CharInfo extends Component {
         if (this.props.charId !== prevProps.charId) {
             this.updateChar(); 
         }
+    }
+
+    componentDidCatch(err, info) {
+        console.log(err, info);
+        this.setState({error: true});
     }
 
     render() {
