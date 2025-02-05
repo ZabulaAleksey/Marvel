@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/marvel/static/css/main.5949eff8.css",
-    "main.js": "/marvel/static/js/main.ec36a66f.js",
-    "static/media/vision.png": "/marvel/static/media/vision.067d4ae1936d64a577ce.png",
-    "static/media/mjolnir.png": "/marvel/static/media/mjolnir.61f31e1809f12183a524.png",
-    "static/media/error.gif": "/marvel/static/media/error.42292aa12b6bc303ce99.gif",
-    "index.html": "/marvel/index.html",
-    "main.5949eff8.css.map": "/marvel/static/css/main.5949eff8.css.map",
-    "main.ec36a66f.js.map": "/marvel/static/js/main.ec36a66f.js.map"
+    "main.css": "/ZabulaAleksey/Marvel.git/static/css/main.5949eff8.css",
+    "main.js": "/ZabulaAleksey/Marvel.git/static/js/main.6e8a91e9.js",
+    "static/media/vision.png": "/ZabulaAleksey/Marvel.git/static/media/vision.067d4ae1936d64a577ce.png",
+    "static/media/mjolnir.png": "/ZabulaAleksey/Marvel.git/static/media/mjolnir.61f31e1809f12183a524.png",
+    "static/media/error.gif": "/ZabulaAleksey/Marvel.git/static/media/error.42292aa12b6bc303ce99.gif",
+    "index.html": "/ZabulaAleksey/Marvel.git/index.html",
+    "main.5949eff8.css.map": "/ZabulaAleksey/Marvel.git/static/css/main.5949eff8.css.map",
+    "main.6e8a91e9.js.map": "/ZabulaAleksey/Marvel.git/static/js/main.6e8a91e9.js.map"
   },
   "entrypoints": [
     "static/css/main.5949eff8.css",
-    "static/js/main.ec36a66f.js"
+    "static/js/main.6e8a91e9.js"
   ]
 }
