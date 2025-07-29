@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
+import useMarvelService from '../../services/MarvelService';
+
 import Skeleton from '../skeleton/Skeleton';
 
 import './charInfo.scss';
-import useMarvelService from '../../services/MarvelService';
+
 
 const _emptyThumbnail = 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg';
 
