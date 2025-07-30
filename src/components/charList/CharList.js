@@ -25,7 +25,7 @@ const CharList = (props) => {
             .then(onCharListLoaded)
     }
 
-    const onCharListLoaded = (newCharList) => {
+    const onCharListLoaded = async (newCharList) => {
         let ended = false;
         if (newCharList.length < 9) {
             ended = true;
@@ -36,8 +36,6 @@ const CharList = (props) => {
         setOffset(offset => offset + 9);
         setCharEnded(charEnded => ended);
     }
-
-    console.log('CharList');
 
     const itemRefs = useRef([]);
 
