@@ -1,5 +1,6 @@
-import {useState, useRef, useEffect} from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Transition } from 'react-transition-group';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
@@ -8,11 +9,28 @@ import './charList.scss';
 
 const CharList = (props) => {
 
+    const wrapperRef = useRef(null);
+    const duration = 1000;
+
+    const defaultStyle = {
+    transform: 'scale(0.5)',
+    opacity: 0,
+    transition: 'all 300ms ease',
+    };
+
+    const transitionStyles = {
+    entering: { transform: 'scale(1)', opacity: 1 },
+    entered:  { transform: 'scale(1)', opacity: 1 },
+    exiting:  { transform: 'scale(0.5)', opacity: 0 },
+    exited:   { transform: 'scale(0.5)', opacity: 0 },
+    };
+
     const [charList, setCharList] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
     const [offset, setOffset] = useState(210);
     const [charEnded, setCharEnded] = useState(false);
-    
+    const [showCharList, setShowCharList] = useState(false);
+
     const {loading, error, getAllCharacters} = useMarvelService();
 
     useEffect(() => {
@@ -20,6 +38,7 @@ const CharList = (props) => {
     }, [])
 
     const onRequest = (offset, initial) => {
+        setShowCharList(false);
         initial ? setNewItemLoading(false) : setNewItemLoading(true)
         getAllCharacters(offset)
             .then(onCharListLoaded)
@@ -35,6 +54,7 @@ const CharList = (props) => {
         setNewItemLoading(newItemLoading => false);
         setOffset(offset => offset + 9);
         setCharEnded(charEnded => ended);
+        setShowCharList(true);
     }
 
     const itemRefs = useRef([]);
@@ -76,9 +96,18 @@ const CharList = (props) => {
         });
 
         return (
-            <ul className="char__grid">
-                {items}
-            </ul>
+            <Transition in={showCharList} timeout={duration} appear nodeRef={wrapperRef}>
+                {state => (
+                    <div
+                        ref={wrapperRef}
+                        style={{ ...defaultStyle, ...(transitionStyles[state] || {}) }}
+                    >
+                        <ul className="char__grid">
+                            {items}
+                        </ul>
+                    </div>
+                )}
+            </Transition>
         )
     }
   
